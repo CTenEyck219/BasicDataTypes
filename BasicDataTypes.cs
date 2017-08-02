@@ -17,6 +17,10 @@ namespace BasicDataTypes
 
             ObjectFunctionality();
 
+            DataTypeFunctionality();
+
+            CharFunctionality();
+
             Console.ReadLine();
 
         }
@@ -73,15 +77,85 @@ namespace BasicDataTypes
             //A C# int is really a shorthand for System.Int32,
             //Which inherits the following members from System.Object.
 
+            //Shows the HashCode for 12
             Console.WriteLine("12.GetHashCode() = {0}", 12.GetHashCode());
-
+            //Checks equality and returns a boolean value
             Console.WriteLine("12.Equals(32) = {0}", 12.Equals(32));
-
+            //Converts to a string
             Console.WriteLine("12.ToString() = {0}", 12.ToString());
-
+            //Shows what type
             Console.WriteLine("12.GetType() = {0}", 12.GetType());
-
+            //Returns the type code
             Console.WriteLine("12.GetTypeCode() = {0}", 12.GetTypeCode());
+
+            //Spacer
+            Console.WriteLine();
+
         }
+
+        static void DataTypeFunctionality()
+        {
+
+            Console.WriteLine("=> Data type Functionality:");
+            //Illustration of data type values such as min, max, epsilon, and infinity
+
+            //Shows the max value int can be
+            Console.WriteLine("Max of int: {0}", int.MaxValue);
+            //Shows the min value int can be
+            Console.WriteLine("Min of int: {0}", int.MinValue);
+            //Shows the max value double can be
+            Console.WriteLine("Max of double: {0}", double.MaxValue);
+            //Shows the min value double can be
+            Console.WriteLine("Min of double: {0}", double.MinValue);
+            //Returns the value for Epsilon
+            Console.WriteLine("double.epsilon: {0}", double.Epsilon);
+            //Returns positive infinity
+            Console.WriteLine("double.PositiveInfinity: {0}", double.PositiveInfinity);
+            //Returns negitive infinity
+            Console.WriteLine("double.NegativeInfinity: {0}", double.NegativeInfinity);
+
+            //Spacer
+            Console.WriteLine();
+
+            //Additional data type functionality with boolean
+
+            //Returns false
+            Console.WriteLine("bool.FalseString: {0}", bool.FalseString);
+            //Returns true
+            Console.WriteLine("bool.TrueString: {0}", bool.TrueString);
+
+            //Spacer
+            Console.WriteLine();
+
+        }
+
+        static void CharFunctionality()
+        {
+
+            Console.WriteLine("=> Char type Functionality:");
+
+            //Exploring and illustrating the functionality of char
+
+            //Setting value for myChar
+            char myChar = 'a';
+
+            //Checking if char is a digit
+            Console.WriteLine("char.IsDigit('a'): {0}", char.IsDigit(myChar));
+            //Checking if char is a letter
+            Console.WriteLine("char.IsLetter('a'): {0}", char.IsLetter(myChar));
+            //Checking to see if char is white space at a specific point (true)
+            Console.WriteLine("char.IsWhiteSpace('Hello There', 5): {0}", 
+                char.IsWhiteSpace("Hello There", 5));
+            //Checking to see if char is white space at a specific point(false)
+            Console.WriteLine("char.IsWhiteSpace('Hello There', 6): {0}",
+                char.IsWhiteSpace("Hello There", 6));
+            //Checking to see if char is a form of punctuation
+            Console.WriteLine("char.IsPunctuation('?'): {0}", char.IsPunctuation('?'));
+
+            //Spacer
+            Console.WriteLine();
+
+        }
+
     }
 }
