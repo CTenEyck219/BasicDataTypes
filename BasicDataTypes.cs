@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//BigInteger Lives here!
+using System.Numerics;
 
 namespace BasicDataTypes
 {
@@ -20,6 +22,14 @@ namespace BasicDataTypes
             DataTypeFunctionality();
 
             CharFunctionality();
+
+            ParseFromStrings();
+
+            UseDatesAndTimes();
+
+            UseBigInteger();
+
+            StringFunctionality();
 
             Console.ReadLine();
 
@@ -74,8 +84,8 @@ namespace BasicDataTypes
 
             Console.WriteLine("=> System.Object Functionality:");
 
-            //A C# int is really a shorthand for System.Int32,
-            //Which inherits the following members from System.Object.
+            /*A C# int is really a shorthand for System.Int32,
+            *Which inherits the following members from System.Object.*/
 
             //Shows the HashCode for 12
             Console.WriteLine("12.GetHashCode() = {0}", 12.GetHashCode());
@@ -157,5 +167,160 @@ namespace BasicDataTypes
 
         }
 
+        static void ParseFromStrings()
+        {
+
+            Console.WriteLine("=> Data type parsing:");
+            /*Exploring different methods of parsing string data
+             * into something that is usable as a different type */
+
+
+            //Parsing string "True" to boolean
+            bool b = bool.Parse("True");
+            Console.WriteLine("Value of b: {0}", b);
+
+            //Parsing string "99.884" to double
+            double d = double.Parse("99.884");
+            Console.WriteLine("Value of d: {0}", d);
+
+            //Parsing string "8" to int
+            int i = int.Parse("8");
+            Console.WriteLine("Value of i: {0}", i);
+
+            //Parsing string "w" to char
+            char c = Char.Parse("w");
+            Console.WriteLine("Value of c: {0}", c);
+
+            //Spacer
+            Console.WriteLine();
+
+        }
+
+        static void UseDatesAndTimes()
+        {
+
+            Console.WriteLine("=> Dates and Times:");
+            //Exploring the DateTime and TimeSpan structures
+
+            //This constructor takes (year, month, day)
+            DateTime dt = new DateTime(2017, 8, 7);
+
+            //What day of the month is this?
+            Console.WriteLine("The day of {0} is {1}", dt.Date, dt.DayOfWeek);
+
+            //Month is now December
+            dt = dt.AddMonths(2);
+            Console.WriteLine("Daylight savings?: {0}", dt.IsDaylightSavingTime());
+
+            //This constructor takes (hours, minuets, seconds)
+            TimeSpan ts = new TimeSpan(4, 30, 0);
+            Console.WriteLine(ts);
+
+            /*Subtract 15 mins from current TimeSpan and
+             * Print the results */
+            Console.WriteLine(ts.Subtract(new TimeSpan(0, 15, 0)));
+
+            //Spacer
+            Console.WriteLine();
+
+        }
+
+        static void UseBigInteger()
+        {
+
+            Console.WriteLine("=> Use BitInteger:");
+            //Defining, calling, and multiplying BigInteger
+
+            //Defining BigInteger
+            BigInteger bigin =
+                BigInteger.Parse("9999999999999999999999999999999999999999999999999999"
+                + "99999999999999999999999999999999999999999");
+            Console.WriteLine("The value of bigin is: {0}", bigin);
+
+            //Checking even
+            Console.WriteLine("Is bigin an even value?: {0}", bigin.IsEven);
+
+            //Checking if bigin is power of 2
+            Console.WriteLine("Is bigin a power of two?: {0}", bigin.IsPowerOfTwo);
+
+            //Multiplying bigin with lilBrother
+            BigInteger kindaBig = BigInteger.Multiply(bigin,
+                BigInteger.Parse("7777777777777777777777777777777777777777777777"));
+
+            //Lets see Kinda Big
+            Console.WriteLine("The kinda big value is : {0}", kindaBig);
+            
+            //Defining another BigInteger to mutiply with bigin
+            BigInteger bigBrother = BigInteger.Parse("8888888888888888888888888888888888"
+                + "8888888888888888888888888888888888888888888888888888888888888888888888");
+
+            //Lets multiply these bad boys
+            BigInteger sumoBig = bigin * bigBrother;
+
+            //Now the finally
+            Console.WriteLine("The value of sumoBig is: {0}", sumoBig);
+
+            //Spacer
+            Console.WriteLine();
+
+        }
+
+        static void StringFunctionality()
+        {
+
+            Console.WriteLine("=> String functionality:");
+            /*Looking at some different functionality of strings
+             * and ways that strings can be manipulated */
+
+            //Setting initial string
+            string firstName = "Freddy";
+
+            //Print first name
+            Console.WriteLine("Value of first name is: {0}", firstName);
+
+            //Printing num of char's in first name
+            Console.WriteLine("First name has {0} characters", firstName.Length);
+
+            //Making first name uppercase
+            Console.WriteLine("First name in uppercase: {0}", firstName.ToUpper());
+
+            //Making first name lowercase
+            Console.WriteLine("First name in lowercase: {0}", firstName.ToLower());
+
+            //Comparing first name with another string
+            Console.WriteLine("First name compared with 'Johnny': {0}",
+                firstName.CompareTo("Johnny"));
+
+            //Does first name contain this?
+            Console.WriteLine("Does first name contain 'ddy'?: {0}", 
+                firstName.Contains("ddy"));
+
+            //Does first name contain this?
+            Console.WriteLine("Does first name contain 'nny'?: {0}",
+                firstName.Contains("nny"));
+
+            //Does first name equal this other name?
+            Console.WriteLine("Is first name equal to 'Jenny'?: {0}", 
+                firstName.Equals("Jenny"));
+
+            //Lets give first name a Prefix
+            Console.WriteLine("Here is first name's prefix: {0}",
+                firstName.Insert(0, "Mr. "));
+
+            //Let us add some padding to the left and right
+            Console.WriteLine("First name needs some space: {0}",
+                firstName.PadLeft(6).PadRight(6));
+
+            //We are going to remove some letters
+            Console.WriteLine("Formal fist name: {0}",
+                firstName.Remove(4));
+
+            //We could also just replace some letters
+            Console.WriteLine("Formal first name again: {0}",
+                firstName.Replace("dy", ""));
+
+            //Spacer
+            Console.WriteLine();
+        }
     }
 }
