@@ -31,6 +31,12 @@ namespace BasicDataTypes
 
             StringFunctionality();
 
+            StringConcatenation();
+
+            EscapeChars();
+
+            StringEquality();
+
             Console.ReadLine();
 
         }
@@ -321,6 +327,108 @@ namespace BasicDataTypes
 
             //Spacer
             Console.WriteLine();
+        }
+
+        static void StringConcatenation()
+        {
+
+            Console.WriteLine("=> String Concatenation:");
+            /*Looking at different ways to concatenate strings*/
+
+            //String decloration
+            string s1 = "Progamming the ";
+            string s2 = "PsychoDrill (PTP)";
+
+            //Slap them together!
+            string s3 = s1 + s2;
+
+            //Lets see what we've got!
+            Console.WriteLine(s3);
+
+            //Spacer
+            Console.WriteLine();
+
+            //Here is another way to accomplish this as well
+            string s4 = String.Concat(s1, s2);
+
+            //Print em out again
+            Console.WriteLine(s4);
+
+            //Spacer
+            Console.WriteLine();
+
+        }
+
+        static void EscapeChars()
+        {
+
+            Console.WriteLine("=> Escape Characters: \a");
+            /*Diving into a few different escape characters*/
+
+            //Declaring string with tab escape
+            string strWithTabs = "Model\tColor\tSpeed\tName\a";
+            Console.WriteLine(strWithTabs);
+
+            //Quotes single double and a carriage return for good measure
+            Console.WriteLine("Everyone \'loves\' a good old \"Hello World\" program\r");
+
+            //Backslash
+            Console.WriteLine("C:\\MyApp\\bin\\debug");
+
+            //Just 4 blank lines including the spacer line
+            Console.WriteLine("All Finished\n\n\n");
+
+            //We can also define a verbatim string with@
+            Console.WriteLine(@"C:\MyApp\bin\debug");
+
+            //This will preserve whitespace as well
+            string veryLongString = @"This is a very
+                    very
+                        very
+                            long string";
+            Console.WriteLine(veryLongString);
+
+            //We can even add double quotes like this
+            Console.WriteLine(@"This is a ""Quote""");
+
+            //Spacer
+            Console.WriteLine();
+
+        }
+
+        static void StringEquality()
+        {
+
+            Console.WriteLine("=> String Equality - All Strings Matter");
+            /*Checking equality in various ways. With STRINGS!*/
+
+            //String decloration
+            string s1 = "Hello!";
+            string s2 = "Yo!";
+
+            Console.WriteLine("s1 = {0}", s1);
+            Console.WriteLine("s2 = {0}", s2);
+
+            //Spacer
+            Console.WriteLine();
+
+            /*Let us test these strings and see if they are equal
+            * to eachother and themselves*/
+            Console.WriteLine("s1 == s2: {0}", s1 == s2);
+
+            Console.WriteLine("s1 == Hello!: {0}", s1 == "Hello!");
+
+            Console.WriteLine("s1 == HELLO!: {0}", s1 == "HELLO!");
+
+            Console.WriteLine("s1 == hello!: {0}", s1 == "hello!");
+
+            Console.WriteLine("s1.Equals(s2): {0}", s1.Equals(s2));
+
+            Console.WriteLine("Yo!.Equals(s2: {0}", "Yo!".Equals(s2));
+
+            //Spacer
+            Console.WriteLine();
+
         }
     }
 }
